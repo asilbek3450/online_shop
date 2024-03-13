@@ -61,7 +61,7 @@ class ProductReview(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     review = models.TextField()
-    rating = models.PositiveIntegerField()
+    rating = models.PositiveIntegerField(default=5, choices=[(i, i) for i in range(1, 6)], blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

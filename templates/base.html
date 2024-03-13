@@ -34,9 +34,9 @@
         <div class="row bg-secondary py-1 px-xl-5">
             <div class="col-lg-6 d-none d-lg-block">
                 <div class="d-inline-flex align-items-center h-100">
-                    <a class="text-body mr-3" href="">About</a>
-                    <a class="text-body mr-3" href="">Contact</a>
-                    <a class="text-body mr-3" href="">Help</a>
+                    <a class="text-body mr-3" href="">Biz haqimizda</a>
+                    <a class="text-body mr-3" href="">Aloqa</a>
+                    <a class="text-body mr-3" href="">Yordam</a>
                     <a class="text-body mr-3" href="">FAQs</a>
                 </div>
             </div>
@@ -45,8 +45,8 @@
                     <div class="btn-group">
                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Mening Proifilim</button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <button class="dropdown-item" type="button">Kirish</button>
-                            <button class="dropdown-item" type="button">Ro'yhatdan o'tish</button>
+                            <a href="{% url 'login' %}"><button class="dropdown-item" type="button">Kirish</button></a>
+                            <a href="{% url 'register' %}"><button class="dropdown-item" type="button">Ro'yhatdan o'tish</button></a>
                         </div>
                     </div>
                     <div class="btn-group mx-2">
@@ -81,8 +81,8 @@
         <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
             <div class="col-lg-4">
                 <a href="" class="text-decoration-none">
-                    <span class="h1 text-uppercase text-primary bg-dark px-2">Multi</span>
-                    <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">Shop</span>
+                    <span class="h1 text-uppercase text-primary bg-dark px-2">Banan</span>
+                    <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">Market</span>
                 </a>
             </div>
             <div class="col-lg-4 col-6 text-left">
