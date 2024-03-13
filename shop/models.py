@@ -14,6 +14,9 @@ class ProductCategory(models.Model):
             self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
+    def get_products_count(self):
+        return self.product_set.count()
+
     def __str__(self):
         return self.name
 

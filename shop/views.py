@@ -6,6 +6,19 @@ from shop.models import Product, ProductCategory, ProductImage, ProductReview
 
 # Create your views here.
 
+class HomePageView(ListView):
+    model = Product
+    template_name = 'shop/index.html'
+    context_object_name = 'products'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = ProductCategory.objects.all()
+        context['expensive_products'] = Product.objects.all().order_by('-price')[0:8]
+        context['recent_products'] = Product.objects.all().order_by('-id')[0:8]
+        return context
+
+
 class ProductListView(ListView):
     model = Product
     template_name = 'shop/shop.html'
