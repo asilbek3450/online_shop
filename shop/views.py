@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 
@@ -35,6 +36,7 @@ class ProductDetailView(DetailView):
     model = Product
     template_name = 'shop/detail.html'
     context_object_name = 'product'
+
     # form = ProductReviewForm
     #
     # if request.method == 'POST':
