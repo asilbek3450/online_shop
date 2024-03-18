@@ -29,7 +29,7 @@
                     <div class="signin-form">
                         <h2 class="form-title">Kirish</h2>
                         <form method="POST" class="register-form" id="login-form">
-                            {% csrf_token %}
+                            {% csrf_token %} 
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 {{ form.username }}
@@ -62,7 +62,7 @@
     </div>
 
     <!-- JS -->
-    <script src="/auth/vendor/jquery/jquery.min.js"></script>
-    <script src="/auth/js/main.js"></script>
+    <script src="{% static '/auth/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static '/auth/js/main.js' %}"></script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>

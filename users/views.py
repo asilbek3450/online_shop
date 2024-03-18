@@ -7,6 +7,11 @@ from django.views.generic import FormView, View, CreateView
 from .forms import UserSignupForm, UserSigninForm
 from .models import User
 
+from django.contrib.auth.models import User
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
+from .forms import UserSignupForm
+
 
 class UserRegisterView(CreateView):
     model = User
