@@ -39,22 +39,19 @@ class Product(models.Model):
         return self.name
 
     def get_cover_image(self):
-        return self.productimage_set.first().get_image_url()
+        return self.productimage_set.first()
 
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to="product_images")
+    image = models.URLField()
 
     def __str__(self):
-        return self.image.name
+        return self.image
 
     class Meta:
         verbose_name_plural = "Product Images"
         ordering = ["-id"]
-
-    def get_image_url(self):
-        return self.image.url
 
 
 class ProductReview(models.Model):

@@ -1,5 +1,7 @@
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse
 from django.views.generic import ListView, DetailView
 
 from shop.forms import ProductReviewForm
@@ -49,4 +51,5 @@ class ProductDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['product_images'] = ProductImage.objects.filter(product=self.object)
         context['related_products'] = Product.objects.filter(category=self.object.category).exclude(id=self.object.id)
+        context['form'] = ProductReviewForm()
         return context
