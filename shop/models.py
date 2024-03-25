@@ -41,6 +41,9 @@ class Product(models.Model):
     def get_cover_image(self):
         return self.productimage_set.first()
 
+    def get_images(self):
+        return self.productimage_set.all()
+
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
