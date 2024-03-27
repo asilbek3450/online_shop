@@ -24,7 +24,7 @@ class Address(models.Model):
 
 class Coupon(models.Model):
     code = models.CharField(max_length=15)
-    discount = models.FloatField()
+    discount = models.IntegerField()
 
     def __str__(self):
         return self.code
@@ -40,7 +40,6 @@ class OrderItem(models.Model):
 
     ordered = models.BooleanField(default=False)
     is_removed = models.BooleanField(default=True)
-    coupon = models.ForeignKey(Coupon, on_delete=models.SET_NULL, blank=True, null=True)
 
     def __str__(self):
         return f"{self.quantity} of {self.product.name}"
@@ -56,6 +55,7 @@ class Order(models.Model):
     ordered_date = models.DateTimeField()
     ordered = models.BooleanField(default=False)
     shipping_address = models.ForeignKey(Address, on_delete=models.SET_NULL, blank=True, null=True)
+    coupon = models.ForeignKey(Coupon, on_delete=models.SET_NULL, blank=True, null=True)
 
     def __str__(self):
         return f"{self.user.username}'s order"
@@ -66,5 +66,8 @@ class Order(models.Model):
             total += item.get_total_item_price()
         return total
 
-
-
+    def get_total_price_with_coupon(self):
+        total = self.get_total_price()
+        if self.coupon:
+            total -= self.coupon.discount
+        return total
